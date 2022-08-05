@@ -1,7 +1,7 @@
 console.log("hello from new extension");
 
 chrome.contextMenus.create({
-  contexts: ["page", "selection"],
+  contexts: ["selection"],
   title: "search wikipedia",
   id: "search-context",
 });
