@@ -1,9 +1,9 @@
-console.log("hello from new extension");
-
-chrome.contextMenus.create({
-  contexts: ["selection"],
-  title: "search wikipedia",
-  id: "search-context",
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    contexts: ["selection"],
+    title: "search wikipedia",
+    id: "search-context",
+  });
 });
 
 chrome.contextMenus.onClicked.addListener((event) => {
@@ -17,7 +17,7 @@ function searchWikipedia(query) {
       url: `https://www.wikipedia.org/wiki/${query}`,
     },
     () => {
-      console.log(`looking for ${query} in wikipedia`);
+      console.log(`looking for ${query} on wikipedia`);
     }
   );
 }
